@@ -16,5 +16,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-fontawesome-css`,
+    `gatsby-plugin-netlify-cms`,
   ],
 }

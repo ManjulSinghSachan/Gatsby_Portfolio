@@ -10,6 +10,7 @@ import {
   faDev,
   faInvision,
 } from '@fortawesome/free-brands-svg-icons'
+import { faClipboardList } from '@fortawesome/free-solid-svg-icons'
 
 import RiderGif from '../images/riderGIF.gif'
 import HeuEval from '../images/heuristicEvaluation.png'
@@ -73,6 +74,10 @@ const ProjectImage = styled.div`
     position: relative;
   }
 `
+const ButtonIcon = styled(FontAwesomeIcon)`
+  display: inline-block;
+  margin-right: 0.5em;
+`
 
 export default function ProjectList() {
   return (
@@ -94,10 +99,10 @@ export default function ProjectList() {
               style={{ backgroundImage: 'none' }}
             >
               <Button>
-                Demo{'  '}
-                <FontAwesomeIcon
-                  icon={faYoutube}
-                />
+                <ButtonIcon
+                    icon={faYoutube}
+                  />
+                Demo
               </Button>
             </a>
             <a
@@ -106,11 +111,11 @@ export default function ProjectList() {
               style={{ backgroundImage: 'none' }}
             >
               <Button>
-                Devpost{'  '}
-                <FontAwesomeIcon icon={faDev} />
+                <ButtonIcon icon={faDev} />
+                Devpost                
               </Button>
             </a>
-            <Button>Case Study</Button>
+            <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage>
@@ -127,7 +132,7 @@ export default function ProjectList() {
           Heuristic evaluation and usability
           testing for the Wegmans Pharmacy portal.
           <ProjectButtons>
-            <Button>Case Study</Button>
+          <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage left>
@@ -152,13 +157,13 @@ export default function ProjectList() {
               style={{ backgroundImage: 'none' }}
             >
               <Button>
-                Demo{'  '}
-                <FontAwesomeIcon
-                  icon={faInvision}
+                <ButtonIcon
+                    icon={faInvision}
                 />
+                Demo
               </Button>
             </a>
-            <Button>Case Study</Button>
+            <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage>

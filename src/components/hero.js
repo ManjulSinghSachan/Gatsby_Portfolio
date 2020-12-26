@@ -9,6 +9,9 @@ import {
 import { Link } from 'gatsby'
 import { navigate } from '@reach/router'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserAstronaut, faFilePdf, faListAlt } from '@fortawesome/free-solid-svg-icons'
+
 import Button from './CustomButton'
 
 import Resume from '../images/resumeManjul.pdf'
@@ -76,6 +79,10 @@ const HeroButtons = styled.div`
     flex-direction: column;
   }
 `
+const ButtonIcon = styled(FontAwesomeIcon)`
+  display: inline-block;
+  margin-right: 0.5em;
+`
 
 export default function Hero() {
   const { scrollYProgress } = useViewportScroll()
@@ -108,12 +115,14 @@ export default function Hero() {
             to="/about/"
             style={{ backgroundImage: 'none' }}
           >
-            <Button>About</Button>
+            <Button><ButtonIcon icon={faUserAstronaut} />About</Button>
           </Link>
           <Button primary onClick={goToProjects}>
+            <ButtonIcon icon={faListAlt} />
             My Work
           </Button>
           <Button onClick={openPdf}>
+            <ButtonIcon icon={faFilePdf} />
             Resume
           </Button>
         </HeroButtons>
