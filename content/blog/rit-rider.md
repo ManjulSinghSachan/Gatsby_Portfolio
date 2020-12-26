@@ -31,7 +31,7 @@ This project has been a significant step in recognizing and harnessing the true 
 - We had to rely on the irregular real-time bus timings of the RIT shuttle in order to test our Action.
 
 # Demo Time
-![Picture containing a photo of the team presenting a demo.](./assets/RiderDemo.jpeg)
+![Picture containing a photo of the team presenting a demo.](../assets/RiderDemo.jpeg)
 
 # Won Best Automation Hack!
-![Picture containing a photo of the team on the stage receiving the award.](./assets/RiderAwardCeremony.jpeg)
+![Picture containing a photo of the team on the stage receiving the award.](../assets/RiderCeremony.jpeg)
