@@ -1,4 +1,5 @@
 ---
+path: /blog/rit-rider
 title: RIT Rider
 tags:
   - Google Assistant Action
