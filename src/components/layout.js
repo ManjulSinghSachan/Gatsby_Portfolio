@@ -101,7 +101,7 @@ const Hamburger = styled.div`
   }
 `
 
-export default function Layout({ children }) {
+export default function Layout({props, children }) {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
   const [isDark, setIsDark] = useState(true)
@@ -124,7 +124,7 @@ export default function Layout({ children }) {
           isDark ? darkTheme : lightTheme
         }
       />
-      <Navigation style={{ opacity: window.location.pathname === "/" ? navOpacity : 1 }}>
+      <Navigation style={{ opacity: navOpacity }}>
         <Logo />
         <Toggle
           navbarOpen={navbarOpen}

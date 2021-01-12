@@ -30,28 +30,28 @@ const AboutHero = styled.div`
     }
 `
 
-const AboutIntro = styled.div`
-    color: #fff;
-    height: 100%;
-    width: 100%;
-    max-width: 1100px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
+// const AboutIntro = styled.div`
+//     color: #fff;
+//     height: 100%;
+//     width: 100%;
+//     max-width: 1100px;
+//     padding: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     flex-direction: row;
 
-    @media screen and (max-width: 480px) {
-      flex-direction: column;
-      padding: 70px;
-    }
-`
+//     @media screen and (max-width: 480px) {
+//       flex-direction: column;
+//       padding: 70px;
+//     }
+// `
 
-const AboutIntroText = styled.div`
-    max-width: 750px;
-    margin-right: 70px;
-    width: 90%;
-`
+// const AboutIntroText = styled.div`
+//     max-width: 750px;
+//     margin-right: 70px;
+//     width: 90%;
+// `
 const AboutMain = styled.div`
     top: 100vh;
     left: 0;

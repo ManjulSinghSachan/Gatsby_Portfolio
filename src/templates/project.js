@@ -1,65 +1,56 @@
 import React from 'react'
-
-import { Link } from 'gatsby'
 import { graphql } from "gatsby"
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import {
-  AnimatePresence,
-  motion,
-} from 'framer-motion'
 
 import Layout from '../components/layout'
-import ProjectHeader from '../components/project-header'
-import ProjectContent from '../components/project-content'
-import { faImage } from '@fortawesome/free-solid-svg-icons'
 
-const TRANSITION_LENGTH = 1
+// const TRANSITION_LENGTH = 1
 
-const transition = {
-  duration: 0.6,
-  ease: [0.43, 0.13, 0.23, 0.96],
-}
+// const transition = {
+//   duration: 0.6,
+//   ease: [0.43, 0.13, 0.23, 0.96],
+// }
 
-const headerContent = {
-  initial: {
-    opacity: 0,
-  },
-  enter: {
-    opacity: 1,
-    transition: {
-      duration: TRANSITION_LENGTH,
-      delay: TRANSITION_LENGTH,
-      when: 'beforeChildren',
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: TRANSITION_LENGTH,
-    },
-  },
-}
+// const headerContent = {
+//   initial: {
+//     opacity: 0,
+//   },
+//   enter: {
+//     opacity: 1,
+//     transition: {
+//       duration: TRANSITION_LENGTH,
+//       delay: TRANSITION_LENGTH,
+//       when: 'beforeChildren',
+//     },
+//   },
+//   exit: {
+//     opacity: 0,
+//     transition: {
+//       duration: TRANSITION_LENGTH,
+//     },
+//   },
+// }
 
-const nextProject = {
-  initial: {
-    y: 0,
-  },
-  enter: {
-    opacity: 1,
-    transition: {
-      duration: TRANSITION_LENGTH,
-      delay: TRANSITION_LENGTH,
-      when: 'beforeChildren',
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: TRANSITION_LENGTH,
-    },
-  },
-}
+// const nextProject = {
+//   initial: {
+//     y: 0,
+//   },
+//   enter: {
+//     opacity: 1,
+//     transition: {
+//       duration: TRANSITION_LENGTH,
+//       delay: TRANSITION_LENGTH,
+//       when: 'beforeChildren',
+//     },
+//   },
+//   exit: {
+//     opacity: 0,
+//     transition: {
+//       duration: TRANSITION_LENGTH,
+//     },
+//   },
+// }
 
 const BlogTitle = styled.div`
   display: block;
@@ -137,7 +128,7 @@ export const pageQuery = graphql`
 
   // return (
     // <Layout>
-       {/* <AnimatePresence
+       /* <AnimatePresence
          initial={false}
          exitBeforeEnter
        >
@@ -148,9 +139,9 @@ export const pageQuery = graphql`
            <ProjectHeader project={project} />
            <ProjectContent />
          </motion.div>
-       </AnimatePresence> */}
+       </AnimatePresence> */
 
-      {/* <motion.div
+      /* <motion.div
           positionTransition
           exit= {{
             y: ({ element }) => {
@@ -166,14 +157,14 @@ export const pageQuery = graphql`
               duration: TRANSITION_LENGTH * 1000 - 250
             }
           }} 
-        > */}
-       {/* <Link to={nextProjectUrl}>
+        > */
+       /* <Link to={nextProjectUrl}>
          <ProjectHeader
            project={project.next}
            truncated={true}
          />
-       </Link> */}
-       {/* </motion.div>  */}
+       </Link> */
+       /* </motion.div>  */
     // </Layout>
   // )
 // }

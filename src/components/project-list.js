@@ -97,6 +97,7 @@ export default function ProjectList() {
             <a
               href="https://www.youtube.com/watch?v=fCqkzKY3o2Y&feature=youtu.be"
               target="_blank"
+              rel="noreferrer"
               style={{ backgroundImage: 'none' }}
             >
               <Button>
@@ -109,6 +110,7 @@ export default function ProjectList() {
             <a
               href="https://devpost.com/software/rit-rider-google-assistant"
               target="_blank"
+              rel="noreferrer"
               style={{ backgroundImage: 'none' }}
             >
               <Button>
@@ -160,6 +162,7 @@ export default function ProjectList() {
             <a
               href="https://projects.invisionapp.com/prototype/ck3alw70g00eekx015mtudj0h/play"
               target="_blank"
+              rel="noreferrer"
               style={{ backgroundImage: 'none' }}
             >
               <Button>

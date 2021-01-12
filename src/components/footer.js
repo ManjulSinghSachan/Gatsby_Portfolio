@@ -47,6 +47,7 @@ export default function Footer() {
         <a
           href="https://www.linkedin.com/in/manjulux/"
           target="_blank"
+          rel="noreferrer"
           style={{ backgroundImage: 'none' }}
         >
           <FontAwesomeIcon icon={faLinkedin} />
@@ -54,6 +55,7 @@ export default function Footer() {
         <a
           href="https://github.com/ManjulSinghSachan"
           target="_blank"
+          rel="noreferrer"
           style={{ backgroundImage: 'none' }}
         >
           <FontAwesomeIcon icon={faGithub} />
@@ -61,6 +63,7 @@ export default function Footer() {
         <a
           href="https://www.behance.net/sachanmanj3bf4"
           target="_blank"
+          rel="noreferrer"
           style={{ backgroundImage: 'none' }}
         >
           <FontAwesomeIcon icon={faBehance} />
