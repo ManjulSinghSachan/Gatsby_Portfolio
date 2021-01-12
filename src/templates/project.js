@@ -1,15 +1,18 @@
 import React from 'react'
-// import TransitionLink, { TransitionState } from "gatsby-plugin-transition-link";
 
 import { Link } from 'gatsby'
+import { graphql } from "gatsby"
+import styled from 'styled-components'
+import Img from 'gatsby-image'
 import {
   AnimatePresence,
   motion,
 } from 'framer-motion'
 
-import NewLayout from '../components/new-layout'
+import Layout from '../components/layout'
 import ProjectHeader from '../components/project-header'
 import ProjectContent from '../components/project-content'
+import { faImage } from '@fortawesome/free-solid-svg-icons'
 
 const TRANSITION_LENGTH = 1
 
@@ -58,24 +61,94 @@ const nextProject = {
   },
 }
 
-const Project = ({ pageContext: project }) => {
-  const nextProjectUrl = `/projects/${project.next.slug}`
+const BlogTitle = styled.div`
+  display: block;
+  margin: 60px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 1.5;
+`
+const BlogTagsContainer = styled.div`
+  text-align: center;
+  margin: 20px;
+`
+const BlogTags = styled.div`
+  display: inline-block;
+  margin: 5px;
+  font-size: 20px;
+  background: #9c38ff;
+  padding: 7px 20px;
+  border-radius: 50px;
+}
+`
+const BlogContent = styled.div`
+  margin: 20px auto;
+  max-width: 70vw;
+`
+
+export default function Project({data}) {
+  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { frontmatter, html } = markdownRemark
+  return (
+    <Layout>
+      <div className="blog-post-container">
+        <div className="blog-post">
+          <BlogTitle>{frontmatter.title}</BlogTitle>
+          <BlogTagsContainer>
+            {frontmatter.tags.map((tag, i) => (
+              <BlogTags key={i}>{tag}</BlogTags>
+            ))}
+          </BlogTagsContainer>
+          <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} style={{maxHeight: '80vh'}} />
+          <BlogContent
+            dangerouslySetInnerHTML={{ __html: html }}
+          >
+          </BlogContent>
+        </div>
+      </div>
+    </Layout>
+  )
+}
+
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        path
+        tags
+        thumbnail {
+          childImageSharp {
+            fluid {
+                ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        title
+      }
+    }
+  }
+`
+
+// const Project = ({ pageContext: project }) => {
+  // const nextProjectUrl = `/projects/${project.next.slug}`
   // const shouldTruncate = ["entering", "entered"].includes(transitionStatus);
 
-  return (
-    <NewLayout>
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter
-      >
-        <motion.div
-          exit={{ opacity: 0 }}
-          transition={{ transition }}
-        >
-          <ProjectHeader project={project} />
-          <ProjectContent />
-        </motion.div>
-      </AnimatePresence>
+  // return (
+    // <Layout>
+       {/* <AnimatePresence
+         initial={false}
+         exitBeforeEnter
+       >
+         <motion.div
+           exit={{ opacity: 0 }}
+           transition={{ transition }}
+         >
+           <ProjectHeader project={project} />
+           <ProjectContent />
+         </motion.div>
+       </AnimatePresence> */}
 
       {/* <motion.div
           positionTransition
@@ -94,15 +167,15 @@ const Project = ({ pageContext: project }) => {
             }
           }} 
         > */}
-      <Link to={nextProjectUrl}>
-        <ProjectHeader
-          project={project.next}
-          truncated={true}
-        />
-      </Link>
-      {/* </motion.div> */}
-    </NewLayout>
-  )
-}
+       {/* <Link to={nextProjectUrl}>
+         <ProjectHeader
+           project={project.next}
+           truncated={true}
+         />
+       </Link> */}
+       {/* </motion.div>  */}
+    // </Layout>
+  // )
+// }
 
-export default Project
+// export default Project

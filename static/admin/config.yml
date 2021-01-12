@@ -12,6 +12,7 @@ collections:
     folder: content/blog
     create: true
     fields:
+      - {label: "Path", name: "path"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Tags", name: "tags", widget: "list", summary: '{{fields.tag}}', field: {label: Tag, name: tag, widget: string}}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}

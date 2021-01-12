@@ -119,7 +119,7 @@ export default function Hero() {
           </Link>
           <Button primary onClick={goToProjects}>
             <ButtonIcon icon={faListAlt} />
-            My Work
+            Projects
           </Button>
           <Button onClick={openPdf}>
             <ButtonIcon icon={faFilePdf} />

@@ -17,5 +17,35 @@ module.exports = {
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `markdown-pages`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+          plugins: [
+              `gatsby-remark-relative-images`,
+              {
+                  resolve: `gatsby-remark-images`,
+                  options: {
+                      maxWidth: 1200,
+                  },
+              },
+          ],
+      },
+    },
   ],
 }

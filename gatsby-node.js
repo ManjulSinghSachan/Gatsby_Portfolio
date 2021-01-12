@@ -1,46 +1,40 @@
 const path = require('path')
 
-exports.createPages = async ({ actions }) => {
+
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const projectTemplate = path.resolve(
-    `./src/templates/project.js`,
+    `src/templates/project.js`,
   )
 
-  const projects = [
+  const result = await graphql(`
     {
-      title: 'Project #1',
-      slug: 'project-1',
-    },
-    {
-      title: 'Project #2',
-      slug: 'project-2',
-    },
-    {
-      title: 'Project #3',
-      slug: 'project-3',
-    },
-    {
-      title: 'Project #4',
-      slug: 'project-4',
-    },
-  ]
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___path] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
+    }
+  `);
 
-  const createProjectPage = (project, index) => {
-    const next =
-      projects[
-        index === projects.length - 1
-          ? 0
-          : index + 1
-      ]
-    createPage({
-      path: `/projects/${project.slug}`,
-      component: projectTemplate,
-      context: {
-        ...project,
-        next,
-      },
-    })
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return
   }
 
-  projects.forEach(createProjectPage)
-}
+  result.data.allMarkdownRemark.edges.forEach(({node}) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: projectTemplate,
+      context: {}, // additional data can be passed via context
+    })
+  })
+};

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Image } from 'rebass'
+import { Link } from 'gatsby'
 
 import Button from './CustomButton'
 
@@ -115,7 +116,12 @@ export default function ProjectList() {
                 Devpost                
               </Button>
             </a>
-            <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
+            <Link
+              to="/blog/rit-rider"
+              style={{ backgroundImage: 'none' }}
+            >
+              <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
+            </Link>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage>

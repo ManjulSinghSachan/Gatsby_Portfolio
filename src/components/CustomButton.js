@@ -17,19 +17,19 @@ const Button = styled.button`
     min-width: 60px;
   }
 
+  :hover {
+    background: ${({ theme }) => theme.button};
+    color: #fff;
+  }
+
   ${(props) =>
     props.primary &&
     css`
       font-weight: 600;
       background: ${({ theme }) => theme.button};
-      color: white;
+      color: #fff;
       min-width: 200px;
     `};
-
-  :hover {
-    background: ${({ theme }) => theme.button};
-    color: white;
-  }
 `
 
 export default Button

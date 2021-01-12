@@ -26,6 +26,10 @@ const FooterButtons = styled.div`
   & > a {
     padding: 0 80px;
     color: ${({ theme }) => theme.button};
+
+    @media (max-width: 768px) {
+      padding: 0 40px;
+    }
   }
 `
 
@@ -34,8 +38,7 @@ export default function Footer() {
     <FooterContainer>
       {/* <FooterContent> */}
       <p>
-        Thank you for checking out all of my
-        projects!
+        Thank you for checking out my work!
       </p>
       <p>See me around!</p>
       {/* </FooterContent> */}

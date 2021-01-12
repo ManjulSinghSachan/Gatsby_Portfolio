@@ -1,22 +1,26 @@
 import React from 'react'
-import Header from '../components/header'
 import Layout from '../components/layout'
-import ParallaxItem from '../components/parallax-item'
 import styled from 'styled-components'
 import { Image } from 'rebass'
+import ParallaxItem from '../components/parallax-item'
 
+import Layer0 from '../images/layer0.png'
+import Layer1 from '../images/layer1.png'
+import Layer2 from '../images/layer2.png'
+import Layer3 from '../images/layer3.png'
+import Layer4 from '../images/layer4.png'
+import Layer5 from '../images/layer5.png'
+import Layer6 from '../images/layer6.png'
 
-import CoverImg from '../images/cover.jpg'
+const CoverLayers = [Layer0, Layer1, Layer2, Layer3, Layer4, Layer5, Layer6]
 
 const AboutHero = styled.div`
-    padding-top: 60px;
-    height: 100vh;
     min-height: 500px;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    background-image: url(${CoverImg});
+    ${'' /* background-image: url(${CoverImg}); */}
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,8 +59,7 @@ const AboutMain = styled.div`
     min-height: 100vh;
     width: 100vw;
     padding: 90px 70px 70px;
-    background: #fff;
-    transition: all .7s ease-in-out;
+    background: ${({ theme }) => theme.body};
 `
 const AboutWrap = styled.div`
     max-width: 1100px;
@@ -76,17 +79,24 @@ const AboutWrap = styled.div`
 const AboutBio = styled.div`
     width: 75%;
     margin-right: 90px;
+    color: ${({ theme }) => theme.text};
 
     @media screen and (max-width: 480px) {
       width: 100%;
     }
 `
+const ParallaxCover = styled(ParallaxItem)`
+  display: block;
+  position: absolute;
+  top: 0;
+`
 
 export default function About() {
+
   return (
     <Layout>
       <AboutHero>
-        <AboutIntro>
+        {/* <AboutIntro>
           <AboutIntroText>
             <h1>
               <span>Hi, I'm Manjul.</span>
@@ -95,8 +105,15 @@ export default function About() {
             </h1>
             <iframe src="https://open.spotify.com/embed/track/0dm3KyleAwe6L4oEEyPm5m" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </AboutIntroText>
-        </AboutIntro>
+        </AboutIntro> */}
+        {CoverLayers.map((layer, i) => (
+          <ParallaxCover key={i} range={0.05*i}>
+            <Image src={layer} />
+          </ParallaxCover>
+        ))}
+        {/* <Image src={CoverLayers[0]} /> */}
       </AboutHero>
+      <ParallaxItem range={0.05*7}>
       <AboutMain>
         <AboutWrap>
           <AboutBio>
@@ -111,6 +128,7 @@ export default function About() {
           </AboutBio>
         </AboutWrap>
       </AboutMain>
+      </ParallaxItem>
     </Layout>
   )
 }
