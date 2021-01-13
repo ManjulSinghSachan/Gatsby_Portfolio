@@ -56,7 +56,7 @@ const ProjectButtons = styled.div`
   flex-direction: row;
   position: relative;
   @media screen and (max-width: 480px) {
-    flex-direction: column;
+    flex-direction: row;
   }
 `
 
@@ -64,6 +64,7 @@ const ProjectImage = styled.div`
   visibility: inherit;
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
+  align-self: center;
 
   @media only screen and (min-width: 768px) {
     grid-column-start: ${(props) =>
@@ -94,6 +95,12 @@ export default function ProjectList() {
           directly ask the Google Assistant about
           shuttle schedules.
           <ProjectButtons>
+            <Link
+              to="/blog/rit-rider"
+              style={{ backgroundImage: 'none' }}
+            >
+              <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
+            </Link>
             <a
               href="https://www.youtube.com/watch?v=fCqkzKY3o2Y&feature=youtu.be"
               target="_blank"
@@ -118,12 +125,6 @@ export default function ProjectList() {
                 Devpost                
               </Button>
             </a>
-            <Link
-              to="/blog/rit-rider"
-              style={{ backgroundImage: 'none' }}
-            >
-              <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
-            </Link>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage>
@@ -140,7 +141,12 @@ export default function ProjectList() {
           Heuristic evaluation and usability
           testing for the Wegmans Pharmacy portal.
           <ProjectButtons>
-          <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
+          <Link
+            to="/blog/rit-rider"
+            style={{ backgroundImage: 'none' }}
+          >
+           <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
+          </Link>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage left>
@@ -159,6 +165,12 @@ export default function ProjectList() {
           of their progress and minimizing the
           chance of missing crucial steps.
           <ProjectButtons>
+            <Link
+              to="/blog/rit-rider"
+              style={{ backgroundImage: 'none' }}
+            >
+              <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
+            </Link>
             <a
               href="https://projects.invisionapp.com/prototype/ck3alw70g00eekx015mtudj0h/play"
               target="_blank"
@@ -172,7 +184,6 @@ export default function ProjectList() {
                 Demo
               </Button>
             </a>
-            <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage>

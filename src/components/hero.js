@@ -19,7 +19,7 @@ import Resume from '../images/resumeManjul.pdf'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
 
   @media screen and (max-width: 480px) {
     height: 100vh;
@@ -97,10 +97,6 @@ export default function Hero() {
     return false
   }
 
-  const goToProjects = () => {
-    navigate('#projectList')
-  }
-
   return (
     <Container>
       <HeroIntro>
@@ -117,10 +113,15 @@ export default function Hero() {
           >
             <Button><ButtonIcon icon={faUserAstronaut} />About</Button>
           </Link>
-          <Button primary onClick={goToProjects}>
-            <ButtonIcon icon={faListAlt} />
-            Projects
-          </Button>
+          <Link
+            to="/#projectList"
+            style={{ backgroundImage: 'none' }}
+          >
+            <Button primary>
+              <ButtonIcon icon={faListAlt} />
+              Projects
+            </Button>
+          </Link>
           <Button onClick={openPdf}>
             <ButtonIcon icon={faFilePdf} />
             Resume

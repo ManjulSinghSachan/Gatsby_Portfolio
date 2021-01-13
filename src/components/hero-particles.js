@@ -8,7 +8,7 @@ class HeroParticles extends React.Component {
         <React.Fragment>
             <Particles
             id="tsparticles"
-            height="100vh"
+            height="80vh"
             options={{
             fpsLimit: 60,
             particles: {

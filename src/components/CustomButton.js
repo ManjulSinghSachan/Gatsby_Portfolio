@@ -12,9 +12,9 @@ const Button = styled.button`
   min-width: 180px;
 
   @media screen and (max-width: 480px) {
-    margin: 1em 0em;
-    font-size: 10px;
-    min-width: 60px;
+    margin: 1em 0.3em;
+    font-size: 15px;
+    min-width: 100px;
   }
 
   :hover {
