@@ -5,7 +5,6 @@ tags:
   - Google Assistant Action
   - Voice User Interface
   - Google Dialog Flow
-  - Rapid API
 thumbnail: ../assets/home_mini_cover.png
 ---
 # Inspiration
