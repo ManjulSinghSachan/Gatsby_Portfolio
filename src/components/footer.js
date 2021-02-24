@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faLinkedin,
   faGithub,
-  faBehance,
+  faBehanceSquare,
 } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
+
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const FooterContainer = styled.div`
   display: flex;
@@ -21,7 +24,6 @@ const FooterContainer = styled.div`
 const FooterButtons = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 40px;
 
   & > a {
     padding: 0 80px;
@@ -40,34 +42,46 @@ export default function Footer() {
       <p>
         Thank you for checking out my work!
       </p>
-      <p>See me around!</p>
+      <p>Let's connect!</p>
       {/* </FooterContent> */}
 
       <FooterButtons>
-        <a
+        <OutboundLink
+          href="mailto:sachanmanjul@gmail.com?subject=Let's Connect"
+          target="_blank"
+          rel="noreferrer"
+          style={{ backgroundImage: 'none', textDecoration: 'none', textAlign: 'center' }}
+        >
+          <FontAwesomeIcon icon={faEnvelopeSquare} style={{fontSize: "40px"}}/>
+          <h2 style={{fontSize: "20px"}}>Email</h2>
+        </OutboundLink>
+        <OutboundLink
           href="https://www.linkedin.com/in/manjulux/"
           target="_blank"
           rel="noreferrer"
-          style={{ backgroundImage: 'none' }}
+          style={{ backgroundImage: 'none', textDecoration: 'none', textAlign: 'center' }}
         >
-          <FontAwesomeIcon icon={faLinkedin} />
-        </a>
-        <a
+          <FontAwesomeIcon icon={faLinkedin} style={{fontSize: "40px"}}/>
+          <h2 style={{fontSize: "20px"}}>LinkedIn</h2>
+        </OutboundLink>
+        <OutboundLink
           href="https://github.com/ManjulSinghSachan"
           target="_blank"
           rel="noreferrer"
-          style={{ backgroundImage: 'none' }}
+          style={{ backgroundImage: 'none', textDecoration: 'none', textAlign: 'center' }}
         >
-          <FontAwesomeIcon icon={faGithub} />
-        </a>
-        <a
+          <FontAwesomeIcon icon={faGithub} style={{fontSize: "40px"}}/>
+          <h2 style={{fontSize: "20px"}}>Github</h2>
+        </OutboundLink>
+        <OutboundLink
           href="https://www.behance.net/sachanmanj3bf4"
           target="_blank"
           rel="noreferrer"
-          style={{ backgroundImage: 'none' }}
+          style={{ backgroundImage: 'none', textDecoration: 'none', textAlign: 'center' }}
         >
-          <FontAwesomeIcon icon={faBehance} />
-        </a>
+          <FontAwesomeIcon icon={faBehanceSquare} style={{fontSize: "40px"}}/>
+          <h2 style={{fontSize: "20px"}}>Behance</h2>
+        </OutboundLink>
       </FooterButtons>
     </FooterContainer>
   )

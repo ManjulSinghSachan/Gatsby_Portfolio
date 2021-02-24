@@ -12,6 +12,7 @@ import {
   faInvision,
 } from '@fortawesome/free-brands-svg-icons'
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons'
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import RiderGif from '../images/riderGIF.gif'
 import HeuEval from '../images/heuristicEvaluation.png'
@@ -101,7 +102,7 @@ export default function ProjectList() {
             >
               <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
             </Link>
-            <a
+            <OutboundLink
               href="https://www.youtube.com/watch?v=fCqkzKY3o2Y&feature=youtu.be"
               target="_blank"
               rel="noreferrer"
@@ -113,8 +114,8 @@ export default function ProjectList() {
                   />
                 Demo
               </Button>
-            </a>
-            <a
+            </OutboundLink>
+            <OutboundLink
               href="https://devpost.com/software/rit-rider-google-assistant"
               target="_blank"
               rel="noreferrer"
@@ -124,7 +125,7 @@ export default function ProjectList() {
                 <ButtonIcon icon={faDev} />
                 Devpost                
               </Button>
-            </a>
+            </OutboundLink>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage>
@@ -142,7 +143,7 @@ export default function ProjectList() {
           testing for the Wegmans Pharmacy portal.
           <ProjectButtons>
           <Link
-            to="/blog/rit-rider"
+            to="/blog/wegmans-rx"
             style={{ backgroundImage: 'none' }}
           >
            <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
@@ -171,7 +172,7 @@ export default function ProjectList() {
             >
               <Button><ButtonIcon icon={faClipboardList} />Case Study</Button>
             </Link>
-            <a
+            <OutboundLink
               href="https://projects.invisionapp.com/prototype/ck3alw70g00eekx015mtudj0h/play"
               target="_blank"
               rel="noreferrer"
@@ -183,7 +184,7 @@ export default function ProjectList() {
                 />
                 Demo
               </Button>
-            </a>
+            </OutboundLink>
           </ProjectButtons>
         </ProjectContent>
         <ProjectImage>

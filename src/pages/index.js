@@ -3,9 +3,9 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ProjectList from '../components/project-list'
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <Layout>
+    <Layout location={props.location}>
       <Hero />
       <ProjectList />
     </Layout>

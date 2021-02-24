@@ -101,7 +101,7 @@ const Hamburger = styled.div`
   }
 `
 
-export default function Layout({props, children }) {
+export default function Layout({location, children }) {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
   const [isDark, setIsDark] = useState(true)
@@ -111,6 +111,14 @@ export default function Layout({props, children }) {
 
   const { scrollYProgress } = useViewportScroll();
   const navOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
+  // const currentURL = location.href ? location.href : "";
+  // console.log(currentURL);
+
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line global-require
+    require("smooth-scroll")('a[href*="#"]')
+  };
 
 
   return (
@@ -124,7 +132,7 @@ export default function Layout({props, children }) {
           isDark ? darkTheme : lightTheme
         }
       />
-      <Navigation style={{ opacity: navOpacity }}>
+      <Navigation style={{ opacity: navOpacity}}>
         <Logo />
         <Toggle
           navbarOpen={navbarOpen}

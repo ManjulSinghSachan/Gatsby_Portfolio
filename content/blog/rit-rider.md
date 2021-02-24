@@ -6,7 +6,7 @@ tags:
   - Voice User Interface
   - Google Dialog Flow
   - Rapid API
-thumbnail: ../assets/RiderCover.jpg
+thumbnail: ../assets/home_mini_cover.png
 ---
 # Inspiration
 This project has been a significant step in recognizing and harnessing the true potential of utilizing the google assistant to perform custom tasks. This idea magnifies the potential usage of the available resources like TRANSLOC API. Being part of the student community which uses RIT commute to travel on and off-campus, we noticed that the use of google assistant will make it more convenient and easy for focusing on just the route and the bus that we are interested in. Students can use this to better plan their schedules especially when bus services can be irregular like in winters. While developing this project, we kept in mind the overall object of Google Assistant that makes things simple and accessible.

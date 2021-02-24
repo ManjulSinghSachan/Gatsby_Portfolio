@@ -71,6 +71,10 @@ const BlogTags = styled.div`
   background: #9c38ff;
   padding: 7px 20px;
   border-radius: 50px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 15px;
+  }
 }
 `
 const BlogContent = styled.div`
@@ -91,7 +95,7 @@ export default function Project({data}) {
               <BlogTags key={i}>{tag}</BlogTags>
             ))}
           </BlogTagsContainer>
-          <Img fluid={frontmatter.thumbnail.childImageSharp.fluid} style={{maxHeight: '80vh'}} />
+          <Img fixed={frontmatter.thumbnail.childImageSharp.fixed} style={{maxHeight: '80vh', width: '100vw'}} />
           <BlogContent
             dangerouslySetInnerHTML={{ __html: html }}
           >
@@ -111,8 +115,8 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fluid {
-                ...GatsbyImageSharpFluid
+            fixed(width: 1200, quality: 100) {
+                ...GatsbyImageSharpFixed
             }
           }
         }
