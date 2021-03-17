@@ -1,56 +1,30 @@
 import React from 'react'
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
+import { Title, Paragraph } from "../components/markdown-styles";
+import ProjectContent from "../components/ProjectContent"
+import PrimaryTitle from "../components/PrimaryTitle"
+import ContentPara from "../components/ContentPara"
+import Button from '../components/CustomButton'
 
-// const TRANSITION_LENGTH = 1
 
-// const transition = {
-//   duration: 0.6,
-//   ease: [0.43, 0.13, 0.23, 0.96],
-// }
+import RehypeReact from "rehype-react"
 
-// const headerContent = {
-//   initial: {
-//     opacity: 0,
-//   },
-//   enter: {
-//     opacity: 1,
-//     transition: {
-//       duration: TRANSITION_LENGTH,
-//       delay: TRANSITION_LENGTH,
-//       when: 'beforeChildren',
-//     },
-//   },
-//   exit: {
-//     opacity: 0,
-//     transition: {
-//       duration: TRANSITION_LENGTH,
-//     },
-//   },
-// }
-
-// const nextProject = {
-//   initial: {
-//     y: 0,
-//   },
-//   enter: {
-//     opacity: 1,
-//     transition: {
-//       duration: TRANSITION_LENGTH,
-//       delay: TRANSITION_LENGTH,
-//       when: 'beforeChildren',
-//     },
-//   },
-//   exit: {
-//     opacity: 0,
-//     transition: {
-//       duration: TRANSITION_LENGTH,
-//     },
-//   },
-// }
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: {
+    h1: Title,
+    p: Paragraph,
+    "project-content": ProjectContent,
+    "primary-title": PrimaryTitle,
+    "content-para": ContentPara,
+    "internal-link": Link,
+    "button": Button,
+  },
+}).Compiler;
 
 const BlogTitle = styled.div`
   display: block;
@@ -71,6 +45,7 @@ const BlogTags = styled.div`
   background: #9c38ff;
   padding: 7px 20px;
   border-radius: 50px;
+  color: #ffffff;
 
   @media screen and (max-width: 480px) {
     font-size: 15px;
@@ -84,11 +59,12 @@ const BlogContent = styled.div`
 
 export default function Project({data}) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, htmlAst } = markdownRemark
   return (
     <Layout>
       <div className="blog-post-container">
         <div className="blog-post">
+
           <BlogTitle>{frontmatter.title}</BlogTitle>
           <BlogTagsContainer>
             {frontmatter.tags.map((tag, i) => (
@@ -96,9 +72,8 @@ export default function Project({data}) {
             ))}
           </BlogTagsContainer>
           <Img fixed={frontmatter.thumbnail.childImageSharp.fixed} style={{maxHeight: '80vh', width: '100vw'}} />
-          <BlogContent
-            dangerouslySetInnerHTML={{ __html: html }}
-          >
+          <BlogContent>
+            {renderAst(htmlAst)}
           </BlogContent>
         </div>
       </div>
@@ -110,6 +85,7 @@ export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      htmlAst
       frontmatter {
         path
         tags

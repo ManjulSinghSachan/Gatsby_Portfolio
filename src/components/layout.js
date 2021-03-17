@@ -17,7 +17,7 @@ const Navigation = styled(motion.nav)`
   height: 10vh;
   min-height: 70px;
   display: flex;
-  background-color: rgb(156,56,255,0.8);
+  background-color: rgb(156,56,255,0.9);
   position: fixed;
   justify-content: space-between;
   text-transform: uppercase;
